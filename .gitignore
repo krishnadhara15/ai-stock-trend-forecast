@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+/data/
+/models/
+*.keras
+.DS_Store
+*.egg-info/
+dist/
+build/

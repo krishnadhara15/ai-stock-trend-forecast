@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Trend Forecast</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>AI Stock Trend Forecast</h1>
+      <p class="subtitle">LSTM multi-step direction prediction via REST API</p>
+    </header>
+
+    <section class="controls card">
+      <label for="ticker">Ticker</label>
+      <div class="row">
+        <select id="ticker"></select>
+        <button id="predict-btn" type="button">Predict Trend</button>
+      </div>
+      <p id="status" class="status">Loading tickers…</p>
+    </section>
+
+    <section id="results" class="card hidden">
+      <h2>Forecast</h2>
+      <p id="meta" class="meta"></p>
+      <div id="steps" class="steps"></div>
+      <p class="disclaimer" id="disclaimer"></p>
+    </section>
+
+    <section class="card info">
+      <h2>About</h2>
+      <ul>
+        <li><strong>Input:</strong> 60-step sliding window of OHLCV + engineered features</li>
+        <li><strong>Model:</strong> Stacked LSTM with dropout, batch norm, LR scheduling</li>
+        <li><strong>Output:</strong> Up/down direction for next 5 steps with confidence</li>
+        <li><strong>Note:</strong> Directional accuracy on held-out data — not trading profit</li>
+      </ul>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
